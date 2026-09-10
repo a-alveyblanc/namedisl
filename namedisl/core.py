@@ -360,6 +360,9 @@ def align_obj(
     *, allow_cross_dim_type: bool = False,
     obj_larger_than_space_ok: bool = False,
 ) -> NamedIslObjectT:
+    if named_obj.space.order_equals(space):
+        return named_obj
+
     obj = named_obj._obj
     running_name_to_dim_id = dict(named_obj.space.name_to_dim)
 
